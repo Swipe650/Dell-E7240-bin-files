@@ -2,7 +2,7 @@
 
 # Pass input variable $1 to volume and write $1 to volume value in mute_home on line 10
 
-google_home="Kitchen"
+google_home="Kitchen home"
 #google_home="Bedroom mini"
 #google_home="Bathroom mini"
 
