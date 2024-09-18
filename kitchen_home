@@ -8,38 +8,38 @@ sed -i '5s/# *//' ~/bin/set_vol_home
 sed -i '7s/# *//' ~/bin/set_vol_home
 sed -i '7s/^/#/' ~/bin/set_vol_home
 
-sed -i '4s/# *//' ~/bin/mute_home
-sed -i '4s/^/#/' ~/bin/mute_home
-sed -i '3s/# *//' ~/bin/mute_home
-sed -i '5s/# *//' ~/bin/mute_home
-sed -i '5s/^/#/' ~/bin/mute_home
+sed -i '4s/# *//' ~/bin/mute_home.sh
+sed -i '4s/^/#/' ~/bin/mute_home.sh
+sed -i '3s/# *//' ~/bin/mute_home.sh
+sed -i '5s/# *//' ~/bin/mute_home.sh
+sed -i '5s/^/#/' ~/bin/mute_home.sh
 
-sed -i '4s/# *//' ~/bin/toggle_mute3_cast
-sed -i '4s/^/#/' ~/bin/toggle_mute3_cast
-sed -i '3s/# *//' ~/bin/toggle_mute3_cast
-sed -i '5s/# *//' ~/bin/toggle_mute3_cast
-sed -i '5s/^/#/' ~/bin/toggle_mute3_cast
+sed -i '4s/# *//' ~/bin/toggle_mute3_cast.sh
+sed -i '4s/^/#/' ~/bin/toggle_mute3_cast.sh
+sed -i '3s/# *//' ~/bin/toggle_mute3_cast.sh
+sed -i '5s/# *//' ~/bin/toggle_mute3_cast.sh
+sed -i '5s/^/#/' ~/bin/toggle_mute3_cast.sh
 
-sed -i '4s/# *//' ~/bin/cast_tr
-sed -i '4s/^/#/' ~/bin/cast_tr
-sed -i '3s/# *//' ~/bin/cast_tr
-sed -i '5s/# *//' ~/bin/cast_tr
-sed -i '5s/^/#/' ~/bin/cast_tr
+sed -i '4s/# *//' ~/bin/cast_tr.sh
+sed -i '4s/^/#/' ~/bin/cast_tr.sh
+sed -i '3s/# *//' ~/bin/cast_tr.sh
+sed -i '5s/# *//' ~/bin/cast_tr.sh
+sed -i '5s/^/#/' ~/bin/cast_tr.sh
 
-sed -i '4s/# *//' ~/bin/cast_lbc
-sed -i '4s/^/#/' ~/bin/cast_lbc
-sed -i '3s/# *//' ~/bin/cast_lbc
-sed -i '5s/# *//' ~/bin/cast_lbc
-sed -i '5s/^/#/' ~/bin/cast_lbc
+sed -i '4s/# *//' ~/bin/cast_lbc.sh
+sed -i '4s/^/#/' ~/bin/cast_lbc.sh
+sed -i '3s/# *//' ~/bin/cast_lbc.sh
+sed -i '5s/# *//' ~/bin/cast_lbc.sh
+sed -i '5s/^/#/' ~/bin/cast_lbc.sh
 
-sed -i '4s/# *//' ~/bin/cast_vol_up
-sed -i '4s/^/#/' ~/bin/cast_vol_up
-sed -i '3s/# *//' ~/bin/cast_vol_up
-sed -i '5s/# *//' ~/bin/cast_vol_up
-sed -i '5s/^/#/' ~/bin/cast_vol_up
+sed -i '4s/# *//' ~/bin/cast_vol_up.sh
+sed -i '4s/^/#/' ~/bin/cast_vol_up.sh
+sed -i '3s/# *//' ~/bin/cast_vol_up.sh
+sed -i '5s/# *//' ~/bin/cast_vol_up.sh
+sed -i '5s/^/#/' ~/bin/cast_vol_up.sh
 
-sed -i '4s/# *//' ~/bin/cast_vol_down
-sed -i '4s/^/#/' ~/bin/cast_vol_down
-sed -i '3s/# *//' ~/bin/cast_vol_down
-sed -i '5s/# *//' ~/bin/cast_vol_down
-sed -i '5s/^/#/' ~/bin/cast_vol_down
+sed -i '4s/# *//' ~/bin/cast_vol_down.sh
+sed -i '4s/^/#/' ~/bin/cast_vol_down.sh
+sed -i '3s/# *//' ~/bin/cast_vol_down.sh
+sed -i '5s/# *//' ~/bin/cast_vol_down.sh
+sed -i '5s/^/#/' ~/bin/cast_vol_down.sh
