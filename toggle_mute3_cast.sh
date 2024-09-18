@@ -1,8 +1,8 @@
 #!/bin/bash
 
-google_home="Kitchen home"
+#google_home="Kitchen home"
 #google_home="Bedroom mini"
-#google_home="Bathroom mini"
+google_home="Multiroom mini"
 
 get_vol=$("$HOME/bin/cast-linux-amd64" --name "$google_home" status | awk -F 'Volume:' '{print $2}' | cut -c2-5)
 
@@ -34,11 +34,15 @@ check_top_of_the_hour()
     case "$st" in 
     "$talkradio" )
     
-    if [ "$currenttime" -eq "58" ] || [ "$currenttime" -eq "59" ]  || [ "$currenttime" -eq "00" ] || [ "$currenttime" -eq "01" ] || [ "$currenttime" -eq "02" ] || [ "$currenttime" -eq "03" ]  || [ "$currenttime" -eq "04" ]; then
-    
+#     if [ "$currenttime" -eq "58" ] || [ "$currenttime" -eq "59" ]  || [ "$currenttime" -eq "00" ] || [ "$currenttime" -eq "01" ] || [ "$currenttime" -eq "02" ] || [ "$currenttime" -eq "03" ]  || [ "$currenttime" -eq "04" ]; then
+
+#       declare -i adlength=30
+
+    if [ "$currenttime" -gt "00" ] && [ "$currenttime" -lt "07" ]; then
+
     mute
     
-    sleep 210
+    sleep 30
      
     unmute
     

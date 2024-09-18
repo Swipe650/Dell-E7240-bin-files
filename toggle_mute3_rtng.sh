@@ -151,7 +151,7 @@ seconds=$(get_adbreak_length)
 no_adbreak_length()
 {
    # Sets timeout value for function
-   timeout=180 # <--- Set value for adbreak length
+   timeout=200 # <--- Set value for adbreak length
 
    # Run check_for_off_peak()
    check_for_off_peak

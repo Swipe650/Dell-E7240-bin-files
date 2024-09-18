@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/home/swipe/bin/cast-linux-amd64 --name "Kitchen" media play http://timesradio.wireless.radio/stream?ref=rf
+/home/swipe/bin/cast-linux-amd64 --name "Kitchen home" media play http://timesradio.wireless.radio/stream?ref=rf
