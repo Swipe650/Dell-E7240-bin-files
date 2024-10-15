@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>WiiM Mini</title>
+
+    <style>
+    body {
+      background-color: grey;
+    }
+    h1 {
+      color: blue;
+      font-family: verdana;
+      font-size: 300%;
+    }
+    p {
+      color: white;
+      font-family: veranda;
+      font-size: 180%;
+      margin: 10px 10px 10px 25px;
+    }
+    div.container {
+        width: 96%;
+        max-width: 1200px;
+        /* to center the container */
+    }
+    img { width: 100%; height: auto; }
+    .columns {
+        Width: 100%;
+        max-width: 1200px;
+    }
+    .column {
+        width:100%;
+    }
+    @media (min-width: 48em) {
+      .column {
+        width: 50%;
+        float:left;
+      }
+      .columns {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    }
+    </style>
+
+</head>
+<body>
+    <div id="myData" class="columns">
+    <div id="albumcover" class="column"></div>
+    <div class="column">
+        <p id="title"></p>
+        <p id="album"></p>
+        <p id="artist"></p>
+        <p id="info"></p>
+    </div>
+    <script>
+    function fetchJson() {
+        fetch('?action=getdata')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                updateData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+    }
+
+        function updateData(data) {
+            var mainContainer = document.getElementById("myData");
+            var div = document.getElementById("albumcover");
+            div.innerHTML = '<img src="' + data['upnp:albumArtURI'] + '" style="width:100%;"</img>';
+
+            var el = document.getElementById("title");
+            el.innerHTML =  data['dc:title'];
+            el = document.getElementById("artist");
+            el.innerHTML = data['upnp:artist'];
+            el = document.getElementById("album");
+            el.innerHTML = data['upnp:album'];
+            var depth = data['song:format_s'];
+            if(depth > 24) depth=24;
+            var actualQuality = data['song:actualQuality'];
+            var rate = data['song:rate_hz'] / 1000.0;
+            var bitrate = data['song:bitrate'] / 1000.0;
+            el = document.getElementById("info");
+            el.innerHTML = `${depth} bits / ${rate} kHz   ${bitrate} kbps`
+
+        }
+    setInterval(fetchJson,1000);
+    fetchJson();
+    </script>
+</body>
+</html>
