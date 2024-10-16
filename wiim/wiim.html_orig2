@@ -77,7 +77,7 @@
         bottom: 0;
     }
 
-    img { max-width: 100%; height: auto;}
+    img { max-width: 94%; height: auto;}
 
     /* Controller Icons */
     #controller button {
@@ -205,6 +205,19 @@
             }
         }
 
+        function fetchJson() {
+        fetch('?action=getdata')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                updateData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+    }
+
         function sendCmd(cmd) {
           
           if(cmd === "toggle") { 
@@ -256,7 +269,6 @@
 
 	    el = document.getElementById("artist");
 
-            //url = `<a href='https://musicbrainz.org/search?query=artist:"${artist}"&type=artist&limit=25&method=advanced' target='artist'>${data['upnp:artist']}</a>`
             url = `<a href='https://rateyourmusic.com/search?searchterm="${artist}"&searchtype='artist' target='artist'>${data['upnp:artist']}</a>`
         if(data['TrackSource'] === 'Tidal') {
 		  url = url + ` <a href='https://listen.tidal.com/artist/${data["song:singerid"]}' target="tidal">...</a>`
@@ -264,7 +276,7 @@
 	    el.innerHTML = url;
 
 	    el = document.getElementById("album");
-            url = `<a href='https://musicbrainz.org/search?query=artist:"${artist}" AND release:"${album}"&type=release_group&limit=25&method=advanced' target='release'>${data['upnp:album']}</a>`
+            url = `<a href='https://musicbrainz.org/search?query=artist:"${artist}" AND release:"${album}"&type=release_group&limit=25&method=advanced' target='release'>${data['upnp:album']}</a>`			    
         if(data['TrackSource'] === 'Tidal') {
 		  url = url + ` <a href='https://listen.tidal.com/album/${data["song:albumid"]}/credits' target="tidal">...</a>`
 	    }
@@ -334,10 +346,10 @@
 
        	    var url = `<a href='http://duckduckgo.com/?q=%5Csite:discogs.com ${artist} ${album}' target='discogs'>Discogs</a>`;
 	    el = document.getElementById("discogs");
-	    el.innerHTML = url;                        
+	    el.innerHTML = url;
         }
-	setInterval(getStatus,1000);
-	getStatus();
+	setInterval(fetchJson,1000);
+	// getStatus();
 	fetchJson();
     </script>
 </body>

@@ -10,6 +10,7 @@ import xmltodict
 import upnpclient
 
 class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
+
     def do_GET(self):
         # Extract query param
         action = ''
@@ -22,21 +23,46 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.send_header("Content-type", content_type)
             self.end_headers()
 
-        if action == "getdata":
-            ####################################################################
-            #### Change the ip address to that of your WiiM Mini
-            d = upnpclient.Device("http://192.168.1.71:49152/description.xml")
-            ####################################################################
+            if action == "getdata":
+                obj = dev.AVTransport.GetMediaInfo(InstanceID='0')
+                meta = obj['CurrentURIMetaData']
+                items = xmltodict.parse(meta)["DIDL-Lite"]["item"]
+                try:
+                    items["TrackSource"] = obj["TrackSource"]
+                except:
+                    print("Error adding TrackSource")
+                    pass
 
-            obj = d.AVTransport.GetMediaInfo(InstanceID='0')
-            meta = obj['CurrentURIMetaData']
-            items = xmltodict.parse(meta)["DIDL-Lite"]["item"]
-            self.wfile.write(str.encode(json.dumps(items)))
-            return
+                self.wfile.write(str.encode(json.dumps(items)))
+                return
 
+            elif action == "status":
+                obj = dev.AVTransport.GetTransportInfo(InstanceID='0')
+                self.wfile.write(str.encode(json.dumps(obj)))
+                return
+            elif action == "play":
+                dev.AVTransport.Play(InstanceID='0',Speed='1')
+                return
+            elif action == "pause":
+                dev.AVTransport.Pause(InstanceID='0')
+                return
+            elif action == "next":
+                dev.AVTransport.Next(InstanceID='0')
+                return
+            elif action == "prev":
+                dev.AVTransport.Previous(InstanceID='0')
+                return
         else:
-            self.path = 'wiim.html'
+            if self.path == "" or self.path == "/":
+                self.path = 'wiim.html'
+
             return http.server.SimpleHTTPRequestHandler.do_GET(self)
+
+
+####################################################################
+#### Change the ip address to that of your WiiM Mini
+dev = upnpclient.Device("http://192.168.1.71:49152/description.xml")
+####################################################################
 
 # Create an object of the above class
 handler_object = MyHttpRequestHandler
