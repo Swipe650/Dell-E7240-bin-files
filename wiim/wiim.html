@@ -205,6 +205,19 @@
             }
         }
 
+        function fetchJson() {
+        fetch('?action=getdata')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                updateData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+    }
+
         function sendCmd(cmd) {
           
           if(cmd === "toggle") { 
@@ -335,8 +348,8 @@
 	    el = document.getElementById("discogs");
 	    el.innerHTML = url;                        
         }
-	setInterval(getStatus,1000);
-	getStatus();
+	setInterval(fetchJson,1000);
+	// getStatus();
 	fetchJson();
     </script>
 </body>
