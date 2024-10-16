@@ -7,7 +7,7 @@ vol=$get_vol
 mute () { playerctl -p wiimplay volume 0 ; }
 
 
-unmute () { playerctl -p wiimplay volume $vol ; }
+unmute () { playerctl -p wiimplay volume "$vol" ; }
 
 
 set_default_mute_time()
@@ -33,7 +33,7 @@ check_top_of_the_hour()
 
     if [ "$currenttime" -eq "58" ] || [ "$currenttime" -eq "59" ]  || [ "$currenttime" -eq "00" ] || [ "$currenttime" -eq "01" ] || [ "$currenttime" -eq "02" ] || [ "$currenttime" -eq "03" ]  || [ "$currenttime" -eq "04" ]; then
 
-    declare -i adlength=30
+    sleep 30
 
     fi
 
