@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#google_home="Kitchen home"
+google_home="Kitchen home"
 #google_home="Bedroom mini"
-google_home="Bathroom mini"
+#google_home="Bathroom mini"
 
 touch ~/.tr
 

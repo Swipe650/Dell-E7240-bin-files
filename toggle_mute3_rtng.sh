@@ -78,7 +78,7 @@ check_top_of_the_hour()
     
     if [ "$currenttime" -gt "00" ] && [ "$currenttime" -lt "07" ]; then
                 
-                declare -i adlength=30
+                declare -i adlength=60
                 
                 top_of_the_hour_dialog
     fi
@@ -151,7 +151,7 @@ seconds=$(get_adbreak_length)
 no_adbreak_length()
 {
    # Sets timeout value for function
-   timeout=200 # <--- Set value for adbreak length
+   timeout=220 # <--- Set value for adbreak length
 
    # Run check_for_off_peak()
    check_for_off_peak
