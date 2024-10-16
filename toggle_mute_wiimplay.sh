@@ -26,14 +26,16 @@ check_top_of_the_hour()
     currenttime=$(date +%M)
 
 # check time for Talkradio
-#     st=$(test -f .tr && echo "TalkRadio")
-#     talkradio='TalkRadio'
-#     case "$st" in
-#     "$talkradio" )
+    st=$(playerctl -p wiimplay metadata title)
+    talkradio='Talk Radio'
+    case "$st" in
+    "$talkradio" )
 
-#     if [ "$currenttime" -eq "58" ] || [ "$currenttime" -eq "59" ]  || [ "$currenttime" -eq "00" ] || [ "$currenttime" -eq "01" ] || [ "$currenttime" -eq "02" ] || [ "$currenttime" -eq "03" ]  || [ "$currenttime" -eq "04" ]; then
+    if [ "$currenttime" -eq "58" ] || [ "$currenttime" -eq "59" ]  || [ "$currenttime" -eq "00" ] || [ "$currenttime" -eq "01" ] || [ "$currenttime" -eq "02" ] || [ "$currenttime" -eq "03" ]  || [ "$currenttime" -eq "04" ]; then
 
-#       declare -i adlength=30
+    declare -i adlength=30
+
+    fi
 
     if [ "$currenttime" -gt "00" ] && [ "$currenttime" -lt "07" ]; then
 
@@ -49,30 +51,30 @@ check_top_of_the_hour()
 
     fi
 
-    #esac
+    esac
 
 
     # check time for lbc
-#     st=$(test -f .lbc && echo "LBC UK")
-#     lbc='LBC UK'
-#     case "$st" in
-#     "$lbc" )
+    st=$(playerctl -p wiimplay metadata title)
+    lbc='LBC UK'
+    case "$st" in
+    "$lbc" )
+
+    if [ "$currenttime" -gt "00" ] && [ "$currenttime" -lt "07" ]; then
 #
-#     if [ "$currenttime" -gt "00" ] && [ "$currenttime" -lt "07" ]; then
-# #
-#     mute
-#
-#     sleep 30
-#
-#     unmute
-#
-#     else
-#
-#     set_default_mute_time
-#
-#     fi
-#
-#     esac
+    mute
+
+    sleep 30
+
+    unmute
+
+    else
+
+    set_default_mute_time
+
+    fi
+
+    esac
 }
 
 check_top_of_the_hour
