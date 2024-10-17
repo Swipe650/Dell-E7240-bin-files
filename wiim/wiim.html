@@ -320,23 +320,23 @@
             el = document.getElementById("info");
             el.innerHTML = `${depth} bits / ${rate} kHz   ${bitrate} ${actualQuality}`;
 
-            var url = `<a href='http://duckduckgo.com/?q=%5Csite:last.fm english ${artist} ${album}' target='lastfm'>Lastfm</a>`;
+            var url = `<a href='http://duckduckgo.com/?q=site:last.fm english ${artist} ${album}' target='lastfm'>Lastfm</a>`;
             el = document.getElementById("lastfm");
             el.innerHTML = url;
 
-            var url = `<a href='http://duckduckgo.com/?q=%5Csite:wikiwand.com ${artist} ${album}' target='wiki'>Wiki</a>`;
+            var url = `<a href='http://duckduckgo.com/?q=site:wikiwand.com ${artist} ${album}' target='wiki'>Wiki</a>`;
             el = document.getElementById("wiki");
             el.innerHTML = url;
 
-       	    var url = `<a href='http://duckduckgo.com/?q=%5Csite:allmusic.com ${artist} ${album}' target='allmusic'>Allmusic</a>`;
+       	    var url = `<a href='http://duckduckgo.com/?q=site:allmusic.com ${artist} ${album}' target='allmusic'>Allmusic</a>`;
 	    el = document.getElementById("allmusic");
 	    el.innerHTML = url;                        
 
-       	    var url = `<a href='http://duckduckgo.com/?q=%5Csite:jazzjournal.co.uk ${artist} ${album}' target='jjuk'>JJUK</a>`;
+       	    var url = `<a href='http://duckduckgo.com/?q=site:jazzjournal.co.uk ${artist} ${album}' target='jjuk'>JJUK</a>`;
 	    el = document.getElementById("jjuk");
 	    el.innerHTML = url;                        
 
-       	    var url = `<a href='http://duckduckgo.com/?q=%5Csite:discogs.com ${artist} ${album}' target='discogs'>Discogs</a>`;
+       	    var url = `<a href='http://duckduckgo.com/?q=site:discogs.com ${artist} ${album}' target='discogs'>Discogs</a>`;
 	    el = document.getElementById("discogs");
 	    el.innerHTML = url;                        
         }
