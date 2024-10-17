@@ -244,17 +244,19 @@
             el.innerHTML =  data['dc:title'];
 
 
-            let artist = encodeURIComponent(data['upnp:artist'].replace(/'/g,""));
+            let artist = decodeURIComponent(data['upnp:artist'].replace(/'/g,""));
             p = artist.indexOf('(');
             if(p>0)
                 artist = artist.substring(0,p);
 
-	    let album = encodeURIComponent(data['upnp:album'].replace(/'/g,""));
+	    let album = decodeURIComponent(data['upnp:album'].replace(/'/g,""));
             p = album.indexOf('(');
             if(p>0)
                 album = album.substring(0,p);
 
 	    el = document.getElementById("artist");
+
+	    document.title = artist + " - " + album;
 
             //url = `<a href='https://musicbrainz.org/search?query=artist:"${artist}"&type=artist&limit=25&method=advanced' target='artist'>${data['upnp:artist']}</a>`
             url = `<a href='https://rateyourmusic.com/search?searchterm="${artist}"&searchtype='artist' target='artist'>${data['upnp:artist']}</a>`
@@ -269,6 +271,7 @@
 		  //url = url + ` <a href='https://listen.tidal.com/album/${data["song:albumid"]}/credits' target="tidal">...</a>`
 	    //}
 	    el.innerHTML = url;
+
 
             var depth = data['song:format_s'];
 	    if(typeof depth != 'string')
