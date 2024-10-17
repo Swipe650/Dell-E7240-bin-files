@@ -14,7 +14,7 @@ set_default_mute_time()
 {
     mute
 
-    sleep 230
+    sleep 210
 
     unmute
 }
@@ -31,11 +31,15 @@ check_top_of_the_hour()
     case "$st" in
     "$talkradio" )
 
-    if [ "$currenttime" -eq "58" ] || [ "$currenttime" -eq "59" ]  || [ "$currenttime" -eq "00" ] || [ "$currenttime" -eq "01" ] || [ "$currenttime" -eq "02" ] || [ "$currenttime" -eq "03" ]  || [ "$currenttime" -eq "04" ]; then
-
-    sleep 30
-
-    fi
+#     if [ "$currenttime" -eq "58" ] || [ "$currenttime" -eq "59" ]  || [ "$currenttime" -eq "00" ] || [ "$currenttime" -eq "01" ] || [ "$currenttime" -eq "02" ] || [ "$currenttime" -eq "03" ]  || [ "$currenttime" -eq "04" ]; then
+#
+#     mute
+#
+#     sleep 30
+#
+#     unmute
+#
+#     fi
 
     if [ "$currenttime" -gt "00" ] && [ "$currenttime" -lt "07" ]; then
 
