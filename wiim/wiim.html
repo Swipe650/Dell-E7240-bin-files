@@ -244,6 +244,10 @@
             var el = document.getElementById("title");
             el.innerHTML =  data['dc:title'];
 
+            let title = decodeURIComponent(data['dc:title'].replace(/'/g,""));
+            p = title.indexOf('(');
+            if(p>0)
+                title = title.substring(0,p);
 
             let artist = decodeURIComponent(data['upnp:artist'].replace(/'/g,""));
             p = artist.indexOf('(');
@@ -257,7 +261,7 @@
 
 	    el = document.getElementById("artist");
 
-	    document.title = artist + " - " + album;
+	    document.title = artist + " - " + title + " : " + album;
 
             //url = `<a href='https://musicbrainz.org/search?query=artist:"${artist}"&type=artist&limit=25&method=advanced' target='artist'>${data['upnp:artist']}</a>`
             url = `<a href='https://rateyourmusic.com/search?searchterm="${artist}"&searchtype='artist' target='artist'>${data['upnp:artist']}</a>`
