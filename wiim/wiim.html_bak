@@ -272,7 +272,7 @@
 
 	    el = document.getElementById("album");
             //url = `<a href='https://musicbrainz.org/search?query=artist:"${artist}" AND release:"${album}"&type=release_group&limit=25&method=advanced' target='release'>${data['upnp:album']}</a>`
-            url = `<a href='https://rateyourmusic.com/search?searchterm=${album}' target='release'>${data['upnp:album']}</a>`
+            url = `<a href='https://rateyourmusic.com/search?searchterm=${artist} - ${album}' target='release'>${data['upnp:album']}</a>`
         //if(data['TrackSource'] === 'Tidal') {
 		  //url = url + ` <a href='https://listen.tidal.com/album/${data["song:albumid"]}/credits' target="tidal">...</a>`
 	    //}
