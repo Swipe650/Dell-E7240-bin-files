@@ -7,7 +7,7 @@ sleep-with-countdown() {
     : $((secs--))
   done
   printf "\n"
-  cast-linux-amd64 --name "Living Room mini" volume 0.4
+  cast-linux-amd64 --name "Living Room mini" volume 0.45
 }
 
 sleep-with-countdown $1

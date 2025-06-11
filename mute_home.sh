@@ -1,8 +1,9 @@
 #!/bin/bash
 
-google_home="Kitchen home"
+#google_home="Kitchen home"
 #google_home="Bedroom mini"
 #google_home="Multiroom mini"
+google_home="Living Room mini"
 
 vol=$(/home/swipe/bin/cast-linux-amd64 --name "$google_home" status | awk -F 'Volume:' '{print $2}' | cut -c4-5 | bc -l)
 
