@@ -8,7 +8,7 @@ google_home="Living Room mini"
 vol=$(/home/swipe/bin/cast-linux-amd64 --name "$google_home" status | awk -F 'Volume:' '{print $2}' | cut -c4-5 | bc -l)
 
     if [[ "$vol" -eq "00" ]]; then
-      /home/swipe/bin/cast-linux-amd64 --name "$google_home" volume .39
+      /home/swipe/bin/cast-linux-amd64 --name "$google_home" volume .31
       
       
     elif [[ "$vol" -gt "01" ]]; then
